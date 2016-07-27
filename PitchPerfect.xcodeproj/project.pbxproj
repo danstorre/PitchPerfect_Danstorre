@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB2E91451D493CAD0013D03C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2E91441D493CAD0013D03C /* Utils.swift */; };
 		FB45758F1D36CD8E00CD823E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB45758E1D36CD8E00CD823E /* AppDelegate.swift */; };
 		FB4575911D36CD8E00CD823E /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4575901D36CD8E00CD823E /* RecordSoundsViewController.swift */; };
 		FB4575941D36CD8E00CD823E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB4575921D36CD8E00CD823E /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB2E91441D493CAD0013D03C /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FB45758B1D36CD8E00CD823E /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB45758E1D36CD8E00CD823E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB4575901D36CD8E00CD823E /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				FB4575901D36CD8E00CD823E /* RecordSoundsViewController.swift */,
 				FB4575A01D3823DC00CD823E /* PlaySoundsViewController.swift */,
 				FBA2F2131D39353B00AB9634 /* PlaySoundsViewController+Audio.swift */,
+				FB2E91441D493CAD0013D03C /* Utils.swift */,
 				FB4575921D36CD8E00CD823E /* Main.storyboard */,
 				FB4575951D36CD8E00CD823E /* Assets.xcassets */,
 				FB4575971D36CD8E00CD823E /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB4575911D36CD8E00CD823E /* RecordSoundsViewController.swift in Sources */,
+				FB2E91451D493CAD0013D03C /* Utils.swift in Sources */,
 				FBA2F2141D39353B00AB9634 /* PlaySoundsViewController+Audio.swift in Sources */,
 				FB4575A11D3823DC00CD823E /* PlaySoundsViewController.swift in Sources */,
 				FB45758F1D36CD8E00CD823E /* AppDelegate.swift in Sources */,

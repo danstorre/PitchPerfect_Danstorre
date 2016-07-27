@@ -8,18 +8,7 @@ import UIKit
 import AVFoundation
 
 extension PlaySoundsViewController: AVAudioPlayerDelegate {
-    struct Alerts {
-        static let DismissAlert = "Dismiss"
-        static let RecordingDisabledTitle = "Recording Disabled"
-        static let RecordingDisabledMessage = "You've disabled this app from recording your microphone. Check Settings."
-        static let RecordingFailedTitle = "Recording Failed"
-        static let RecordingFailedMessage = "Something went wrong with your recording."
-        static let AudioRecorderError = "Audio Recorder Error"
-        static let AudioSessionError = "Audio Session Error"
-        static let AudioRecordingError = "Audio Recording Error"
-        static let AudioFileError = "Audio File Error"
-        static let AudioEngineError = "Audio Engine Error"
-    }
+    
     
     // raw values correspond to sender tags
     enum PlayingState { case Playing, NotPlaying }
@@ -32,7 +21,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         do {
             audioFile = try AVAudioFile(forReading: recordedAudioURL)
         } catch {
-            showAlert(Alerts.AudioFileError, message: String(error))
+            Alerts.showAlert(Alerts.AudioFileError, message: String(error), viewController: self)
         }
         print("Audio has been setup")
     }
@@ -101,7 +90,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         do {
             try audioEngine.start()
         } catch {
-            showAlert(Alerts.AudioEngineError, message: String(error))
+            Alerts.showAlert(Alerts.AudioEngineError, message: String(error), viewController: self)
             return
         }
         
@@ -160,11 +149,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     }
 
     
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
+    
 
     
 }

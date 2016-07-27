@@ -15,16 +15,16 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
     
-    
-    
     var audioRecorder:AVAudioRecorder!
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        toggleButtonForRecording(on: false)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        toggleButtonForRecording(on: false)
-        
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "stopRecording") {
@@ -42,13 +42,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func toggleButtonForRecording(on on: Bool){
         recordButton.enabled = !on
         stopRecordingButton.enabled = on
-        
+        labelTapToRecord.text = on ? "Recording in progress" : "Tap to record"
     }
     
     @IBAction func recordAudio(sender: AnyObject) {
         
         print("record button pressed")
-        labelTapToRecord.text = "Recording in progress"
+        
         toggleButtonForRecording(on: true)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as String
@@ -70,8 +70,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBAction func stopRecording(sender: AnyObject) {
         
         print("stop record button pressed")
-        labelTapToRecord.text = "Tap to record"
-        toggleButtonForRecording(on: false)
         
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
@@ -81,9 +79,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         print("AVAudioRecorder finished saving recording")
         if (flag){
-            self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+            performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
         }else {
             print("Saving of recording failed")
+            Alerts.showAlert(Alerts.RecordingFailedTitle, message: Alerts.RecordingFailedMessage, viewController: self)
         }
     }
     
