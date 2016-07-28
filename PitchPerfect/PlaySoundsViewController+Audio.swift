@@ -137,6 +137,9 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             setPlayButtonsEnabled(true)
             stopButton.enabled = false
         }
+        
+        //configuring uiimage's view content mode
+        view.changeImageViewModeOf(arrayButtons: [rabbitButton, snailButton, chipmunkButton, darthVaderButton, carrotButton, echoButton, stopButton], to: .ScaleAspectFit)
     }
     
     func setPlayButtonsEnabled(enabled: Bool) {
@@ -147,9 +150,6 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         echoButton.enabled = enabled
         carrotButton.enabled = enabled
     }
-
-    
-    
 
     
 }
