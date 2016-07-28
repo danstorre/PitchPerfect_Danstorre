@@ -19,6 +19,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var echoButton : UIButton!
     @IBOutlet weak var stopButton : UIButton!
     
+    
     var recordedAudioURL: NSURL!
     var audioFile : AVAudioFile!
     var audioEngine : AVAudioEngine!
@@ -46,6 +47,7 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         configureUI(.NotPlaying)
+        view.changeImageViewModeOf(arrayButtons: [rabbitButton, snailButton, chipmunkButton, darthVaderButton, carrotButton, echoButton, stopButton], to: .ScaleAspectFit)
     }
 
     override func didReceiveMemoryWarning() {

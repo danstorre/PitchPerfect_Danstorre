@@ -38,6 +38,17 @@ struct Alerts {
         
 }
 
+extension UIView {
+
+    func changeImageViewModeOf(arrayButtons arrayButton: [UIButton], to mode: UIViewContentMode ){
+        for button in arrayButton{
+            if let imageView = button.imageView{
+                imageView.contentMode = mode
+            }
+        }
+    }
+}
+
 
 
 
